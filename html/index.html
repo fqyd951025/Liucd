@@ -2,9 +2,107 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="../css/swiper.css">
+	<link rel="stylesheet" type="text/css" href="../css/index.css">
 	<title>首页</title>
 </head>
 <body>
-	<h2> this is a home page </h2>
+	<div class="container">
+		<img id="backPic" src="../img/back5.jpg">
+		<div class="row">
+			<div class="col-xs-3 backG1">
+				<div class="row userImg">
+					<img id="userPic" src="../img/back1.jpg">
+				</div>
+				<h3 class="paddingL25">基本信息</h3>
+				<ul class="paddingL25">
+					<li>姓名：刘朝德</li>
+					<li>性别：男</li>
+					<li>年龄：23</li>
+					<li>身高：170 （cm）</li>
+					<li>体重：60 （kg）</li>
+					<li>电话：18*****2184</li>
+					<li>邮箱：24*****778@qq.com</li>
+					<li>QQ：24*****778</li>
+				</ul>
+
+				<div>
+					<h3 class="paddingL25">兴趣爱好</h3>
+					<div class="paddingL25">
+						1、喜欢听歌，散步，打羽毛球；2、喜欢交朋友、有空也喜欢看书
+					</div>
+				</div>
+
+				<div>
+					<h3 class="paddingL25">教育经历</h3>
+					<div class="paddingL25">
+						2012年9月 - 2015年4月 华南师范大学金融管理本科
+						<br> 　　主修课程：商务沟通技巧 、企业组织与经营环境、商务运营管理、商务管理综合应用等 　　2012年7月 - 2014年7月 广州番禺职业技术学院工商企业管理大专<br> 　　主修课程：人力资源开发与管理、管理基础与实务、办公室事务管理、商务礼仪等
+					</div>
+				</div>
+				
+			</div>
+			<div class="col-xs-9">
+				<h4 class="honor">荣誉展示</h4>
+				<div class="swiper-container">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<img src="../img/back1.jpg">
+						</div>
+						<div class="swiper-slide">
+							<img src="../img/back2.jpg">
+						</div>
+						<div class="swiper-slide">
+							<img src="../img/back3.jpg">
+						</div>
+						<div class="swiper-slide">
+							<img src="../img/back4.jpg">
+						</div>
+						<div class="swiper-slide">
+							<img src="../img/back5.jpg">
+						</div>
+					</div>
+					<!-- 分页器 -->
+					<div class="swiper-pagination"></div>
+					<!-- 上下页 -->
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div>
+					
+				</div>
+			</div>
+		</div>
+
+	</div>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/swiper.js"></script>
+	<script>
+		let swiper = new Swiper('.swiper-container',{
+			// 循环播放
+			loop:true,
+
+			// 自动播放
+			autoplay:{
+				autoplay:true,
+				delay:2500,
+				disableOnInteraction:false	//触击后不停止自动切换
+			},
+
+			// 如果需要分页器
+		    pagination: {
+		      el: '.swiper-pagination',
+		      clickable:true,
+		    },
+		    
+		    // 如果需要前进后退按钮
+		    navigation: {
+		      nextEl: '.swiper-button-next',
+		      prevEl: '.swiper-button-prev',
+		      hideOnClick: true,
+  			  hiddenClass: 'my-button-hidden',	//左右箭头，到最值时点击失效
+		    },
+		    
+		});
+	</script>
 </body>
 </html>
