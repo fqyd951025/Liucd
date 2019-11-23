@@ -84,6 +84,9 @@ System.register([], function () {
                   systemEvent.on(SystemEvent.EventType.MOUSE_DOWN, this.onMouseDown, this);
                   systemEvent.on(SystemEvent.EventType.MOUSE_MOVE, this.onMouseMove, this);
                   systemEvent.on(SystemEvent.EventType.MOUSE_UP, this.onMousUp, this);
+                  systemEvent.on(SystemEvent.EventType.TOUCH_START, this.onMouseDown, this);
+                  systemEvent.on(SystemEvent.EventType.TOUCH_MOVE, this.onMouseMove, this);
+                  systemEvent.on(SystemEvent.EventType.TOUCH_END, this.onMousUp, this);
 
                   for (var i = 0; i < list.length; i++) {
                     var node = instantiate(this.cube);
@@ -98,7 +101,20 @@ System.register([], function () {
               }, {
                 key: "onMouseDown",
                 value: function onMouseDown(tag) {
-                  this.startPos = v2(tag._x, tag._y);
+                  var obj = {
+                    x: 0,
+                    y: 0
+                  };
+
+                  if (tag._point) {
+                    obj.x = tag._point.x;
+                    obj.y = tag._point.y;
+                  } else {
+                    obj.x = tag._x;
+                    obj.y = tag._y;
+                  }
+
+                  this.startPos = v2(obj.x, obj.y);
                   this.isMouseUp = false;
                   console.log("onMouseDown x = ".concat(this.node.rotation.x, " y = ").concat(this.node.rotation.y));
                 }
@@ -112,9 +128,22 @@ System.register([], function () {
                 key: "onMouseMove",
                 value: function onMouseMove(tag) {
                   if (this.isMouseUp) return;
+                  var obj = {
+                    x: 0,
+                    y: 0
+                  };
+
+                  if (tag._point) {
+                    obj.x = tag._point.x;
+                    obj.y = tag._point.y;
+                  } else {
+                    obj.x = tag._x;
+                    obj.y = tag._y;
+                  }
+
                   var q = 0.5;
-                  var ox = tag._x - this.startPos.x;
-                  var oy = tag._y - this.startPos.y;
+                  var ox = obj.x - this.startPos.x;
+                  var oy = obj.y - this.startPos.y;
                   console.log("onMouseMove ox = ".concat(ox, " oy = ").concat(oy));
                   var x = this.pos.x - oy * q;
                   var y = this.pos.y + ox * q;

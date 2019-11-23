@@ -49,6 +49,8 @@
   </div>
   <script src="src/cc-env.js" charset="utf-8"> </script>
 
+<script src="./vconsole.min.js"></script>
+
 
 
 <script src="src/babelHelpers.js" charset="utf-8"></script>
@@ -59,6 +61,9 @@
 
 <script type="text/javascript">
   (function () {
+    
+    // open web debugger console
+    window.VConsole && (window.vConsole = new VConsole());
     
     
     var splash = document.getElementById('splash');
