@@ -610,6 +610,7 @@ System.register([], function () {
                   systemEvent.on(SystemEvent.EventType.MOUSE_UP, this.onMousUp, this);
                   systemEvent.on(SystemEvent.EventType.TOUCH_START, this.onMouseDown, this);
                   systemEvent.on(SystemEvent.EventType.TOUCH_MOVE, this.onMouseMove, this);
+                  systemEvent.on(SystemEvent.EventType.TOUCH_END, this.onMousUp, this);
                   this.initQuat(this.quad1, list1);
                   this.initQuat(this.quad2, list2);
                   this.initQuat(this.quad3, list3);
@@ -660,6 +661,7 @@ System.register([], function () {
                 value: function onMousUp() {
                   this.isMouseUp = true;
                   this.moFangPos = v3(this.upPos.x, this.upPos.y, this.upPos.z);
+                  console.log("MoFangMain onMousUp moFangPos = ".concat(JSON.stringify(this.moFangPos)));
                 }
               }, {
                 key: "getTag",
