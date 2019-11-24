@@ -3,6 +3,88 @@ System.register([], function () {
   return {
     execute: function () {
 
+      System.register("project:///assets/script/Cube.ts", ["cc"], function (_export, _context) {
+
+        var _decorator, Component, Material, ModelComponent, find, _dec, _dec2, _class, _class2, _descriptor, _temp, ccclass, property, Cube;
+
+        _export({
+          _dec: void 0,
+          _dec2: void 0,
+          _class: void 0,
+          _class2: void 0,
+          _descriptor: void 0,
+          _temp: void 0
+        });
+
+        return {
+          setters: [function (_cc) {
+            _decorator = _cc._decorator;
+            Component = _cc.Component;
+            Material = _cc.Material;
+            ModelComponent = _cc.ModelComponent;
+            find = _cc.find;
+          }],
+          execute: function () {
+            cc._RF.push(window.module || {}, "b66fa721SdM+pOj69I1QMe9", "Cube"); // begin Cube
+
+
+            ccclass = _decorator.ccclass;
+            property = _decorator.property;
+
+            _export("Cube", Cube = (_dec = ccclass("Cube"), _dec2 = property({
+              type: [Material]
+            }), _dec(_class = (_class2 = (_temp =
+            /*#__PURE__*/
+            function (_Component) {
+              babelHelpers.inherits(Cube, _Component);
+
+              function Cube() {
+                var _babelHelpers$getProt;
+
+                var _this;
+
+                babelHelpers.classCallCheck(this, Cube);
+
+                for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+                  args[_key] = arguments[_key];
+                }
+
+                _this = babelHelpers.possibleConstructorReturn(this, (_babelHelpers$getProt = babelHelpers.getPrototypeOf(Cube)).call.apply(_babelHelpers$getProt, [this].concat(args)));
+                babelHelpers.initializerDefineProperty(_this, "material", _descriptor, babelHelpers.assertThisInitialized(_this));
+                return _this;
+              }
+
+              babelHelpers.createClass(Cube, [{
+                key: "start",
+                value: function start() {// console.log(`Cube start`);
+                }
+              }, {
+                key: "init",
+                value: function init(colors) {
+                  // console.log(`Cube init colors = ${JSON.stringify(colors)}`);
+                  for (var i = 0; i < colors.length; i++) {
+                    var quad = find("NewQuad" + (i + 1), this.node);
+                    var comp = quad.getComponent(ModelComponent);
+                    comp.material = this.material[colors[i]];
+                  }
+                }
+              }]);
+              return Cube;
+            }(Component), _temp), _descriptor = babelHelpers.applyDecoratedDescriptor(_class2.prototype, "material", [_dec2], {
+              configurable: true,
+              enumerable: true,
+              writable: true,
+              initializer: function initializer() {
+                return [];
+              }
+            }), _class2)) || _class));
+
+            cc._RF.pop(); // end Cube
+
+          }
+        };
+      });
+
       System.register("project:///assets/script/CubeParams.ts", ["cc"], function (_export, _context) {
 
         var _decorator, v3, _dec, _class, ccclass, property, list1, list2, list3, list, CubeParams;
@@ -187,16 +269,22 @@ System.register([], function () {
         };
       });
 
-      System.register("project:///assets/script/Cube.ts", ["cc"], function (_export, _context) {
+      System.register("project:///assets/script/MainUI.ts", ["cc", "./CubeParams.ts"], function (_export, _context) {
 
-        var _decorator, Component, Material, ModelComponent, find, _dec, _dec2, _class, _class2, _descriptor, _temp, ccclass, property, Cube;
+        var _decorator, Component, ButtonComponent, CubeParams, _dec, _dec2, _dec3, _dec4, _dec5, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _temp, ccclass, property, MainUI;
 
         _export({
           _dec: void 0,
           _dec2: void 0,
+          _dec3: void 0,
+          _dec4: void 0,
+          _dec5: void 0,
           _class: void 0,
           _class2: void 0,
           _descriptor: void 0,
+          _descriptor2: void 0,
+          _descriptor3: void 0,
+          _descriptor4: void 0,
           _temp: void 0
         });
 
@@ -204,68 +292,135 @@ System.register([], function () {
           setters: [function (_cc) {
             _decorator = _cc._decorator;
             Component = _cc.Component;
-            Material = _cc.Material;
-            ModelComponent = _cc.ModelComponent;
-            find = _cc.find;
+            ButtonComponent = _cc.ButtonComponent;
+          }, function (_CubeParamsTs) {
+            CubeParams = _CubeParamsTs.CubeParams;
           }],
           execute: function () {
-            cc._RF.push(window.module || {}, "b66fa721SdM+pOj69I1QMe9", "Cube"); // begin Cube
+            cc._RF.push(window.module || {}, "b60a8z69dtLwIb21DA7LoWO", "MainUI"); // begin MainUI
 
 
             ccclass = _decorator.ccclass;
             property = _decorator.property;
 
-            _export("Cube", Cube = (_dec = ccclass("Cube"), _dec2 = property({
-              type: [Material]
+            _export("MainUI", MainUI = (_dec = ccclass("MainUI"), _dec2 = property({
+              type: ButtonComponent
+            }), _dec3 = property({
+              type: ButtonComponent
+            }), _dec4 = property({
+              type: ButtonComponent
+            }), _dec5 = property({
+              type: ButtonComponent
             }), _dec(_class = (_class2 = (_temp =
             /*#__PURE__*/
             function (_Component) {
-              babelHelpers.inherits(Cube, _Component);
+              babelHelpers.inherits(MainUI, _Component);
 
-              function Cube() {
+              function MainUI() {
                 var _babelHelpers$getProt;
 
                 var _this;
 
-                babelHelpers.classCallCheck(this, Cube);
+                babelHelpers.classCallCheck(this, MainUI);
 
                 for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
                   args[_key] = arguments[_key];
                 }
 
-                _this = babelHelpers.possibleConstructorReturn(this, (_babelHelpers$getProt = babelHelpers.getPrototypeOf(Cube)).call.apply(_babelHelpers$getProt, [this].concat(args)));
-                babelHelpers.initializerDefineProperty(_this, "material", _descriptor, babelHelpers.assertThisInitialized(_this));
+                _this = babelHelpers.possibleConstructorReturn(this, (_babelHelpers$getProt = babelHelpers.getPrototypeOf(MainUI)).call.apply(_babelHelpers$getProt, [this].concat(args)));
+                babelHelpers.initializerDefineProperty(_this, "btn1", _descriptor, babelHelpers.assertThisInitialized(_this));
+                babelHelpers.initializerDefineProperty(_this, "btn2", _descriptor2, babelHelpers.assertThisInitialized(_this));
+                babelHelpers.initializerDefineProperty(_this, "btn3", _descriptor3, babelHelpers.assertThisInitialized(_this));
+                babelHelpers.initializerDefineProperty(_this, "btn4", _descriptor4, babelHelpers.assertThisInitialized(_this));
                 return _this;
               }
 
-              babelHelpers.createClass(Cube, [{
+              babelHelpers.createClass(MainUI, [{
                 key: "start",
                 value: function start() {
-                  console.log("Cube start");
+                  this.initClickEvent(); // this.node.pauseSystemEvents(true);
+                  // this.node.resumeSystemEvents(true);
                 }
               }, {
-                key: "init",
-                value: function init(colors) {
-                  console.log("Cube init colors = ".concat(JSON.stringify(colors)));
-
-                  for (var i = 0; i < colors.length; i++) {
-                    var quad = find("NewQuad" + (i + 1), this.node);
-                    var comp = quad.getComponent(ModelComponent);
-                    comp.material = this.material[colors[i]];
-                  }
+                key: "initClickEvent",
+                value: function initClickEvent() {
+                  this.btn1.node.on("click", this.onBtn1Event, this);
+                  this.btn2.node.on("click", this.onBtn2Event, this);
+                  this.btn3.node.on("click", this.onBtn3Event, this);
+                  this.btn4.node.on("click", this.onBtn4Event, this);
                 }
+              }, {
+                key: "onBtn1Event",
+                value: function onBtn1Event() {
+                  console.log("MainUI onBtn1Event");
+                  CubeParams.setCurrParams(1);
+                  CubeParams.moFang.node.emit("MoFangMainInit", true, this);
+                }
+              }, {
+                key: "onBtn2Event",
+                value: function onBtn2Event() {
+                  console.log("MainUI onBtn2Event");
+                  CubeParams.setCurrParams(2);
+                  CubeParams.moFang.node.emit("MoFangMainInit", true, this);
+                }
+              }, {
+                key: "onBtn3Event",
+                value: function onBtn3Event() {
+                  console.log("MainUI onBtn3Event");
+                  CubeParams.setCurrParams(3);
+                  CubeParams.moFang.node.emit("MoFangMainInit", true, this);
+                }
+              }, {
+                key: "onBtn4Event",
+                value: function onBtn4Event() {
+                  console.log("MainUI onBtn4Event");
+                  CubeParams.setCurrParams(0);
+                  CubeParams.moFang.node.emit("MoFangMainInit", true, this);
+                }
+              }, {
+                key: "onDestroy",
+                value: function onDestroy() {
+                  this.btn1.node.off("click", this.onBtn1Event, this);
+                  this.btn2.node.off("click", this.onBtn2Event, this);
+                  this.btn3.node.off("click", this.onBtn3Event, this);
+                  this.btn4.node.off("click", this.onBtn4Event, this);
+                } // update (deltaTime: number) {
+                //     // Your update function goes here.
+                // }
+
               }]);
-              return Cube;
-            }(Component), _temp), _descriptor = babelHelpers.applyDecoratedDescriptor(_class2.prototype, "material", [_dec2], {
+              return MainUI;
+            }(Component), _temp), (_descriptor = babelHelpers.applyDecoratedDescriptor(_class2.prototype, "btn1", [_dec2], {
               configurable: true,
               enumerable: true,
               writable: true,
               initializer: function initializer() {
-                return [];
+                return null;
               }
-            }), _class2)) || _class));
+            }), _descriptor2 = babelHelpers.applyDecoratedDescriptor(_class2.prototype, "btn2", [_dec3], {
+              configurable: true,
+              enumerable: true,
+              writable: true,
+              initializer: function initializer() {
+                return null;
+              }
+            }), _descriptor3 = babelHelpers.applyDecoratedDescriptor(_class2.prototype, "btn3", [_dec4], {
+              configurable: true,
+              enumerable: true,
+              writable: true,
+              initializer: function initializer() {
+                return null;
+              }
+            }), _descriptor4 = babelHelpers.applyDecoratedDescriptor(_class2.prototype, "btn4", [_dec5], {
+              configurable: true,
+              enumerable: true,
+              writable: true,
+              initializer: function initializer() {
+                return null;
+              }
+            })), _class2)) || _class));
 
-            cc._RF.pop(); // end Cube
+            cc._RF.pop(); // end MainUI
 
           }
         };
@@ -492,163 +647,6 @@ System.register([], function () {
             })), _class2)) || _class));
 
             cc._RF.pop(); // end MoFangMain
-
-          }
-        };
-      });
-
-      System.register("project:///assets/script/MainUI.ts", ["cc", "./CubeParams.ts"], function (_export, _context) {
-
-        var _decorator, Component, ButtonComponent, CubeParams, _dec, _dec2, _dec3, _dec4, _dec5, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _temp, ccclass, property, MainUI;
-
-        _export({
-          _dec: void 0,
-          _dec2: void 0,
-          _dec3: void 0,
-          _dec4: void 0,
-          _dec5: void 0,
-          _class: void 0,
-          _class2: void 0,
-          _descriptor: void 0,
-          _descriptor2: void 0,
-          _descriptor3: void 0,
-          _descriptor4: void 0,
-          _temp: void 0
-        });
-
-        return {
-          setters: [function (_cc) {
-            _decorator = _cc._decorator;
-            Component = _cc.Component;
-            ButtonComponent = _cc.ButtonComponent;
-          }, function (_CubeParamsTs) {
-            CubeParams = _CubeParamsTs.CubeParams;
-          }],
-          execute: function () {
-            cc._RF.push(window.module || {}, "b60a8z69dtLwIb21DA7LoWO", "MainUI"); // begin MainUI
-
-
-            ccclass = _decorator.ccclass;
-            property = _decorator.property;
-
-            _export("MainUI", MainUI = (_dec = ccclass("MainUI"), _dec2 = property({
-              type: ButtonComponent
-            }), _dec3 = property({
-              type: ButtonComponent
-            }), _dec4 = property({
-              type: ButtonComponent
-            }), _dec5 = property({
-              type: ButtonComponent
-            }), _dec(_class = (_class2 = (_temp =
-            /*#__PURE__*/
-            function (_Component) {
-              babelHelpers.inherits(MainUI, _Component);
-
-              function MainUI() {
-                var _babelHelpers$getProt;
-
-                var _this;
-
-                babelHelpers.classCallCheck(this, MainUI);
-
-                for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-                  args[_key] = arguments[_key];
-                }
-
-                _this = babelHelpers.possibleConstructorReturn(this, (_babelHelpers$getProt = babelHelpers.getPrototypeOf(MainUI)).call.apply(_babelHelpers$getProt, [this].concat(args)));
-                babelHelpers.initializerDefineProperty(_this, "btn1", _descriptor, babelHelpers.assertThisInitialized(_this));
-                babelHelpers.initializerDefineProperty(_this, "btn2", _descriptor2, babelHelpers.assertThisInitialized(_this));
-                babelHelpers.initializerDefineProperty(_this, "btn3", _descriptor3, babelHelpers.assertThisInitialized(_this));
-                babelHelpers.initializerDefineProperty(_this, "btn4", _descriptor4, babelHelpers.assertThisInitialized(_this));
-                return _this;
-              }
-
-              babelHelpers.createClass(MainUI, [{
-                key: "start",
-                value: function start() {
-                  this.initClickEvent(); // this.node.pauseSystemEvents(true);
-                  // this.node.resumeSystemEvents(true);
-                }
-              }, {
-                key: "initClickEvent",
-                value: function initClickEvent() {
-                  this.btn1.node.on("click", this.onBtn1Event, this);
-                  this.btn2.node.on("click", this.onBtn2Event, this);
-                  this.btn3.node.on("click", this.onBtn3Event, this);
-                  this.btn4.node.on("click", this.onBtn4Event, this);
-                }
-              }, {
-                key: "onBtn1Event",
-                value: function onBtn1Event() {
-                  console.log("MainUI onBtn1Event");
-                  CubeParams.setCurrParams(1);
-                  CubeParams.moFang.node.emit("MoFangMainInit", true, this);
-                }
-              }, {
-                key: "onBtn2Event",
-                value: function onBtn2Event() {
-                  console.log("MainUI onBtn2Event");
-                  CubeParams.setCurrParams(2);
-                  CubeParams.moFang.node.emit("MoFangMainInit", true, this);
-                }
-              }, {
-                key: "onBtn3Event",
-                value: function onBtn3Event() {
-                  console.log("MainUI onBtn3Event");
-                  CubeParams.setCurrParams(3);
-                  CubeParams.moFang.node.emit("MoFangMainInit", true, this);
-                }
-              }, {
-                key: "onBtn4Event",
-                value: function onBtn4Event() {
-                  console.log("MainUI onBtn4Event");
-                  CubeParams.setCurrParams(0);
-                  CubeParams.moFang.node.emit("MoFangMainInit", true, this);
-                }
-              }, {
-                key: "onDestroy",
-                value: function onDestroy() {
-                  this.btn1.node.off("click", this.onBtn1Event, this);
-                  this.btn2.node.off("click", this.onBtn2Event, this);
-                  this.btn3.node.off("click", this.onBtn3Event, this);
-                  this.btn4.node.off("click", this.onBtn4Event, this);
-                } // update (deltaTime: number) {
-                //     // Your update function goes here.
-                // }
-
-              }]);
-              return MainUI;
-            }(Component), _temp), (_descriptor = babelHelpers.applyDecoratedDescriptor(_class2.prototype, "btn1", [_dec2], {
-              configurable: true,
-              enumerable: true,
-              writable: true,
-              initializer: function initializer() {
-                return null;
-              }
-            }), _descriptor2 = babelHelpers.applyDecoratedDescriptor(_class2.prototype, "btn2", [_dec3], {
-              configurable: true,
-              enumerable: true,
-              writable: true,
-              initializer: function initializer() {
-                return null;
-              }
-            }), _descriptor3 = babelHelpers.applyDecoratedDescriptor(_class2.prototype, "btn3", [_dec4], {
-              configurable: true,
-              enumerable: true,
-              writable: true,
-              initializer: function initializer() {
-                return null;
-              }
-            }), _descriptor4 = babelHelpers.applyDecoratedDescriptor(_class2.prototype, "btn4", [_dec5], {
-              configurable: true,
-              enumerable: true,
-              writable: true,
-              initializer: function initializer() {
-                return null;
-              }
-            })), _class2)) || _class));
-
-            cc._RF.pop(); // end MainUI
 
           }
         };
