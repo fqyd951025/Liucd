@@ -18,16 +18,16 @@ window._CCSettings = {
     moduleIds: [],
     scripts: [
         {
-            moduleId: "project:///assets/script/Cube.ts",
-            file: "preview-scripts/assets/script/Cube.ts"
-        },
-        {
             moduleId: "project:///assets/script/CubeParams.ts",
             file: "preview-scripts/assets/script/CubeParams.ts"
         },
         {
             moduleId: "project:///assets/script/MainUI.ts",
             file: "preview-scripts/assets/script/MainUI.ts"
+        },
+        {
+            moduleId: "project:///assets/script/Cube.ts",
+            file: "preview-scripts/assets/script/Cube.ts"
         },
         {
             moduleId: "project:///assets/script/MoFangMain.ts",

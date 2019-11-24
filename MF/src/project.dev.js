@@ -3,88 +3,6 @@ System.register([], function () {
   return {
     execute: function () {
 
-      System.register("project:///assets/script/Cube.ts", ["cc"], function (_export, _context) {
-
-        var _decorator, Component, Material, ModelComponent, find, _dec, _dec2, _class, _class2, _descriptor, _temp, ccclass, property, Cube;
-
-        _export({
-          _dec: void 0,
-          _dec2: void 0,
-          _class: void 0,
-          _class2: void 0,
-          _descriptor: void 0,
-          _temp: void 0
-        });
-
-        return {
-          setters: [function (_cc) {
-            _decorator = _cc._decorator;
-            Component = _cc.Component;
-            Material = _cc.Material;
-            ModelComponent = _cc.ModelComponent;
-            find = _cc.find;
-          }],
-          execute: function () {
-            cc._RF.push(window.module || {}, "b66fa721SdM+pOj69I1QMe9", "Cube"); // begin Cube
-
-
-            ccclass = _decorator.ccclass;
-            property = _decorator.property;
-
-            _export("Cube", Cube = (_dec = ccclass("Cube"), _dec2 = property({
-              type: [Material]
-            }), _dec(_class = (_class2 = (_temp =
-            /*#__PURE__*/
-            function (_Component) {
-              babelHelpers.inherits(Cube, _Component);
-
-              function Cube() {
-                var _babelHelpers$getProt;
-
-                var _this;
-
-                babelHelpers.classCallCheck(this, Cube);
-
-                for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-                  args[_key] = arguments[_key];
-                }
-
-                _this = babelHelpers.possibleConstructorReturn(this, (_babelHelpers$getProt = babelHelpers.getPrototypeOf(Cube)).call.apply(_babelHelpers$getProt, [this].concat(args)));
-                babelHelpers.initializerDefineProperty(_this, "material", _descriptor, babelHelpers.assertThisInitialized(_this));
-                return _this;
-              }
-
-              babelHelpers.createClass(Cube, [{
-                key: "start",
-                value: function start() {// console.log(`Cube start`);
-                }
-              }, {
-                key: "init",
-                value: function init(colors) {
-                  // console.log(`Cube init colors = ${JSON.stringify(colors)}`);
-                  for (var i = 0; i < colors.length; i++) {
-                    var quad = find("NewQuad" + (i + 1), this.node);
-                    var comp = quad.getComponent(ModelComponent);
-                    comp.material = this.material[colors[i]];
-                  }
-                }
-              }]);
-              return Cube;
-            }(Component), _temp), _descriptor = babelHelpers.applyDecoratedDescriptor(_class2.prototype, "material", [_dec2], {
-              configurable: true,
-              enumerable: true,
-              writable: true,
-              initializer: function initializer() {
-                return [];
-              }
-            }), _class2)) || _class));
-
-            cc._RF.pop(); // end Cube
-
-          }
-        };
-      });
-
       System.register("project:///assets/script/CubeParams.ts", ["cc"], function (_export, _context) {
 
         var _decorator, v3, _dec, _class, ccclass, property, list1, list2, list3, list, CubeParams;
@@ -426,6 +344,88 @@ System.register([], function () {
         };
       });
 
+      System.register("project:///assets/script/Cube.ts", ["cc"], function (_export, _context) {
+
+        var _decorator, Component, Material, ModelComponent, find, _dec, _dec2, _class, _class2, _descriptor, _temp, ccclass, property, Cube;
+
+        _export({
+          _dec: void 0,
+          _dec2: void 0,
+          _class: void 0,
+          _class2: void 0,
+          _descriptor: void 0,
+          _temp: void 0
+        });
+
+        return {
+          setters: [function (_cc) {
+            _decorator = _cc._decorator;
+            Component = _cc.Component;
+            Material = _cc.Material;
+            ModelComponent = _cc.ModelComponent;
+            find = _cc.find;
+          }],
+          execute: function () {
+            cc._RF.push(window.module || {}, "b66fa721SdM+pOj69I1QMe9", "Cube"); // begin Cube
+
+
+            ccclass = _decorator.ccclass;
+            property = _decorator.property;
+
+            _export("Cube", Cube = (_dec = ccclass("Cube"), _dec2 = property({
+              type: [Material]
+            }), _dec(_class = (_class2 = (_temp =
+            /*#__PURE__*/
+            function (_Component) {
+              babelHelpers.inherits(Cube, _Component);
+
+              function Cube() {
+                var _babelHelpers$getProt;
+
+                var _this;
+
+                babelHelpers.classCallCheck(this, Cube);
+
+                for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+                  args[_key] = arguments[_key];
+                }
+
+                _this = babelHelpers.possibleConstructorReturn(this, (_babelHelpers$getProt = babelHelpers.getPrototypeOf(Cube)).call.apply(_babelHelpers$getProt, [this].concat(args)));
+                babelHelpers.initializerDefineProperty(_this, "material", _descriptor, babelHelpers.assertThisInitialized(_this));
+                return _this;
+              }
+
+              babelHelpers.createClass(Cube, [{
+                key: "start",
+                value: function start() {// console.log(`Cube start`);
+                }
+              }, {
+                key: "init",
+                value: function init(colors) {
+                  // console.log(`Cube init colors = ${JSON.stringify(colors)}`);
+                  for (var i = 0; i < colors.length; i++) {
+                    var quad = find("NewQuad" + (i + 1), this.node);
+                    var comp = quad.getComponent(ModelComponent);
+                    comp.material = this.material[colors[i]];
+                  }
+                }
+              }]);
+              return Cube;
+            }(Component), _temp), _descriptor = babelHelpers.applyDecoratedDescriptor(_class2.prototype, "material", [_dec2], {
+              configurable: true,
+              enumerable: true,
+              writable: true,
+              initializer: function initializer() {
+                return [];
+              }
+            }), _class2)) || _class));
+
+            cc._RF.pop(); // end Cube
+
+          }
+        };
+      });
+
       System.register("project:///assets/script/MoFangMain.ts", ["cc", "./CubeParams.ts"], function (_export, _context) {
 
         var _decorator, Component, systemEvent, SystemEvent, v2, v3, instantiate, Prefab, CCBoolean, CubeParams, _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _temp, ccclass, property, MoFangMain;
@@ -521,7 +521,7 @@ System.register([], function () {
                 value: function init() {
                   console.log("MoFangMain init");
                   this.isMouseUp = true;
-                  this.moFangRota = v3(0, 0, 0);
+                  this.moFangRota = v3(30, 30, 0);
                   this.node.removeAllChildren();
                   this.node.setRotationFromEuler(0, 0, 0);
                   this.initQuat();
