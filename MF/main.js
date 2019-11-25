@@ -43,6 +43,56 @@ window.boot = function () {
     window._CCSettings = undefined;
 
     
+        var uuids = settings.uuids;
+
+        var rawAssets = settings.rawAssets;
+        var assetTypes = settings.assetTypes;
+        var realRawAssets = settings.rawAssets = {};
+        for (var mount in rawAssets) {
+            var entries = rawAssets[mount];
+            var realEntries = realRawAssets[mount] = {};
+            for (var id in entries) {
+                var entry = entries[id];
+                var type = entry[1];
+                // retrieve minified raw asset
+                if (typeof type === 'number') {
+                    entry[1] = assetTypes[type];
+                }
+                // retrieve uuid
+                realEntries[uuids[id] || id] = entry;
+            }
+        }
+
+        var scenes = settings.scenes;
+        for (var i = 0; i < scenes.length; ++i) {
+            var scene = scenes[i];
+            if (typeof scene.uuid === 'number') {
+                scene.uuid = uuids[scene.uuid];
+            }
+        }
+
+        var packedAssets = settings.packedAssets;
+        for (var packId in packedAssets) {
+            var packedIds = packedAssets[packId];
+            for (var j = 0; j < packedIds.length; ++j) {
+                if (typeof packedIds[j] === 'number') {
+                    packedIds[j] = uuids[packedIds[j]];
+                }
+            }
+        }
+
+        var subpackages = settings.subpackages;
+        for (var subId in subpackages) {
+            var uuidArray = subpackages[subId].uuids;
+            if (uuidArray) {
+                for (var k = 0, l = uuidArray.length; k < l; k++) {
+                    if (typeof uuidArray[k] === 'number') {
+                        uuidArray[k] = uuids[uuidArray[k]];
+                    }
+                }
+            }
+        }
+    
 
     function setLoadingDisplay () {
         // Loading splash scene
@@ -126,7 +176,7 @@ window.boot = function () {
     var jsList = settings.jsList;
 	/* <!--  --> */
 	
-		var bundledScript = 'src/project.dev.js';
+		var bundledScript = 'src/project.js';
         if (jsList) {
             jsList = jsList.map(function (x) {
                 return 'src/' + x;
