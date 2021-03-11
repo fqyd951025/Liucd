@@ -78,7 +78,7 @@
 
 <body>
     <div id="app">
-        <sup style="opacity: 0.5">版本号：1.1</sup>
+        <sup style="opacity: 0.5">版本号：1.2</sup>
         <table>
             <tr>
                 <td style="font-size: 15pt;">股票代码：</td>
@@ -1025,8 +1025,10 @@
         </div>
         <h2 style="align-content: center;"><a href="http://" style="text-decoration:underline;" target="view_window"
                 id="jingying">点击查看：经营情况讨论与概述</a></h2>
-        <h2 style="align-content: center;"><a href="http://www.cninfo.com.cn/new/index" style="text-decoration:underline;" target="view_window"
-                    >点击跳转：巨潮资讯网查看年报</a></h2>
+        <h2 style="align-content: center;"><a id="yearReport" href="" style="text-decoration:underline;" target="view_window"
+				>点击跳转：新浪网查看年报</a></h2>
+		<h2 style="align-content: center;"><a href="http://www.cninfo.com.cn/new/index" style="text-decoration:underline;" target="view_window"
+				>点击跳转：巨潮网查看年报</a></h2>
 
         <div style="background-color: rgb(173, 245, 250);width: 550px;">
             <h1>价格估值计算器</h1>
@@ -1250,6 +1252,12 @@
                     this.codeName = income_data["data"]["quote_name"];
                 }
             },
+			watch: {
+				gpcode(newVal, oldVal) {
+					var url = "https://vip.stock.finance.sina.com.cn/corp/go.php/vCB_Bulletin/stockid/" + newVal + "/page_type/ndbg.phtml";
+					document.getElementById("yearReport").href = url;
+				}
+			}
         });
 
         //看有关资产和总资产的比率
