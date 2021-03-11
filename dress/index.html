@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>公司年报</title>
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=2,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <style type="text/css">
+        button {
+            background-color: rgb(31, 185, 0);
+            color: honeydew;
+            text-shadow: lawngreen;
+        }
+
+        input {
+            height: 18pt;
+            width: 100pt;
+            height: 18pt;
+            font-size: 12pt;
+        }
+
+        button {
+            font-size: 14pt;
+            width: 80pt;
+            height: 30pt;
+        }
+
+        a {
+            text-decoration:underline;
+            font-size: 18pt;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <p>
+            <span>股票代码：</span>
+            <input type="text" v-model="gpcode" placeholder="输入股票代码">
+            <br>
+            <br>
+            <a id="yearReport" target="view_window"
+                href="">
+                点击获取年报
+            </a>
+        </p>
+
+    </div>
+    <script>
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                gpcode: ""
+            },
+            watch: {
+                gpcode(newVal, oldVal) {
+                    var url = "https://vip.stock.finance.sina.com.cn/corp/go.php/vCB_Bulletin/stockid/" + newVal + "/page_type/ndbg.phtml";
+                    document.getElementById("yearReport").href = url;
+                }
+            }
+        });
+
+
+
+    </script>
+</body>
+
+</html>
